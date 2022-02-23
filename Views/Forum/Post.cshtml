@@ -1,0 +1,70 @@
+@model Post
+
+@{
+    bool alreadyLiked = @Model.Likes.Any(like => Context.Session.GetInt32("UserId") == like.UserId);
+}
+<div class="container">
+    <h1 class="text-center text-primary">@Model.Topic</h1>
+    @if (@Model.UserId == @Context.Session.GetInt32("UserId"))
+    {
+        <div class="text-center">
+            <form asp-controller="Forum" asp-action="Delete" asp-route-postId="@Model.PostId" method="POST">
+                <button class="btn btn-link text-danger" onclick="return confirm('Are you sure you want to delete this?')">
+                    <small>DELETE?</small>
+                </button>
+            </form>
+        </div>
+    }
+    <hr>
+    <div class="text-center">
+        <p>@Model.Body</p>
+        @if (@Model.UserId == @Context.Session.GetInt32("UserId"))
+        {
+            <div class="text-center">
+                <a asp-controller="Forum" asp-action="Edit" class="text-success"><small>EDIT?</small></a>
+            </div>
+        }
+        <small>Posted by @Model.Author.UserName at @Model.UpdatedAt</small>
+        <form asp-controller="Forum" asp-action="Like" asp-route-postId="@Model.PostId">
+            <button class="btn btn-link">
+                @if (alreadyLiked)
+                {
+                    <span>&#128148;</span>
+                }
+                else
+                {
+                    <span>&#10084;</span>
+                }
+            </button>
+            <small>@Model.Likes.Count likes!</small>
+        </form>
+    </div>
+    @if (@Model.Replies.Count > 0)
+    {
+        <hr>
+        <h5 class="text-center text-primary">Replies</h5>
+    }
+    @foreach (Reply reply in @Model.Replies)
+    {
+        <hr>
+        <div class="text-center">
+            <p>@reply.Body</p>
+            <small>Posted by @reply.Author.UserName at @reply.CreatedAt</small>
+            @if (@reply.UserId == @Context.Session.GetInt32("UserId"))
+            {
+                <form asp-controller="Forum" asp-action="DeleteReply" asp-route-replyId="@reply.ReplyId" method="POST">
+                    <button class="btn btn-link text-danger" onclick="return confirm('Are you sure you want to delete this?')">
+                        <small>DELETE?</small>
+                    </button>
+                </form>
+            }
+        </div>
+    }
+    @{
+        Reply emptyReply = new Reply();
+        {
+            emptyReply.PostId = @Model.PostId;
+        }
+    }
+    <partial name="_Reply" model="@emptyReply"></partial>
+</div>

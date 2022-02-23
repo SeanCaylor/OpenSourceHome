@@ -1,0 +1,11 @@
+@model Reply
+
+<div class="w-75 mx-auto">
+    <form asp-controller="Forum" asp-action="Reply" asp-route-postId="@Model.PostId" method="POST" class="mb-3">
+        <div class="form-group">
+            <textarea asp-for="Body" class="form-control" placeholder="Reply"></textarea>
+            <span asp-validation-for="Body" class="text-danger font-weight-bold"></span>
+        </div>
+        <p class="text-center"><button class="btn btn-sm btn-outline-dark">Submit</button></p>
+    </form>
+</div>

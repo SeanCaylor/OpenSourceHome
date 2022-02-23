@@ -1,0 +1,78 @@
+@model SerialNumber
+<meta http-equiv="refresh" content="15">
+
+
+<div class="homepageHeaderIMG mb-3">
+    <div class="homepageHeaderTEXT">
+        <p>ZERO EMISSION HOME<br>PLANS</p>
+    </div>
+</div>
+<div class="container">
+    <div id="about" class="row mt-5">
+        <div id="aboutText" class="col">
+            <h1 class="text-primary font-weight-bold text-center">
+                About
+            </h1>
+            <br>
+            <div>
+                <h3 class="text-primary">
+                    Efficient, Zero-Carbon Living
+                </h3>
+                <ul>
+                    <li>Five-bedroom, three-and-a-quarter bath</li>
+                    <li>Main living and alternate domestic unit design</li>
+                    <li>1100 square feet</li>
+                </ul>
+            </div>
+        </div>
+        <div id="aboutIMG" class="col">
+            <img src="~/images/HomeHeader.jpeg" alt="a zero-emission home" class="img-fluid">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1 class="text-primary font-weight-bold mt-5">
+        Details
+    </h1>
+    <br>
+    <p>Perfect for a couple and a family of five or six, this house has a nice open feel and is completely energy
+        neutral and self
+        sustaining</p>
+    <br>
+    <div>
+        <h3 class="text-primary">
+            General House Features
+        </h3>
+        <ul>
+            <li>Affordable net-zero or net positive design</li>
+            <li>SIPs Neopor shell (R-29 6.5" wall & R-49 10.25" roof)</li>
+            <li>SIPs roof creates vaulted ceilings</li>
+            <li>Vinyltek triple-pane windows (U-14 to U-16)</li>
+            <li>Post & beam construction allows easy future remodels</li>
+            <li>4” Slab-on-grade floor for thermal mass</li>
+            <li>4” R-20 under-slab insulation</li>
+            <li>Nu Dura perimeter slab insulation (R-23.8)</li>
+            <li>Optimized south-facing glazing & optimized daylighting</li>
+            <li>Built Green certified</li>
+            <li>Heat pump heating & heat pump hot water</li>
+            <li>Heat recovery ventilator recovers a minimum of 80% of energy from outgoing air</li>
+            <li>Rooftop solar installed onto pitched roof to meet net-zero or net positive</li>
+            <li>Electric car charger</li>
+        </ul>
+        @if (@Model.Downloads <= 10)
+        {
+            <a href='@Url.Action("DownloadFile", "Download")' class="btn btn-outline-dark"
+            onclick="window.location.reload();">Download Plans</a>
+            <br>
+            <small class="text-danger">Note: you are limited to 10 downloads, you have currently downloaded the plans
+                @Model.Downloads times.</small>
+        }
+        else
+        {
+            <a href='/' class="btn btn-outline-dark">Download Plans</a>
+            <br>
+            <small class="text-danger">You have currently downloaded the plans the maximum number of times. The above button
+                will send you back to the home page, thank you.</small>
+        }
+    </div>
+</div>

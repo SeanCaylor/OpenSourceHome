@@ -1,0 +1,293 @@
+﻿@model Keymaster
+<hr>
+
+<div class="container">
+    <div id="summery">
+        <h3 class="text-primary">PowerMouse Designs' Open Source Home Project</h3>
+        <hr>
+        @{
+            if (TempData.ContainsKey("Registered"))
+            {
+                <p class="text-success">
+                    &emsp;You have successfully registered, and thank you so much for doing so,
+                    @TempData["Registered"].ToString()!
+                </p>
+                <p>
+                    &emsp;From here, simply scroll down, agree to the licence and click the continue button to get to the
+                    download page, we've populated your serial number for you. You can also retain your welcome email from us,
+                    as it contains the serial so you can download the plans again without having to log in! Also feel free to
+                    check out the forums, located in the navbar on top. Again, thank you for being a part of the zero emissions
+                    revolution!
+                </p>
+            }
+            else if (TempData.ContainsKey("LoggedIn"))
+            {
+                <p class="text-success">
+                    &emsp;You have successfully logged in, and thank you so much for doing so, @TempData["LoggedIn"].ToString()!
+                </p>
+                <p>
+                    &emsp;From here, simply scroll down, agree to the licence and click the continue button to get to the
+                    download page, we've populated your serial number for you. Feel free to
+                    check out the forums, located in the navbar on top. Again, thank you for being a part of the zero emissions
+                    revolution!
+                </p>
+            }
+            else if (Context.Session.GetString("UserName") != null)
+            {
+                <p>
+                    &emsp;From here, simply scroll down, agree to the licence and click the continue button to get to the
+                    download page, we've populated your serial number for you. Feel free to
+                    check out the forums, located in the navbar on top. Again, thank you for being a part of the zero emissions
+                    revolution!
+                </p>
+            }
+            else
+            {
+                <p>
+                    &emsp;Thank you for visiting! If you have already registered, you can input your serial number in the space
+                    underneath the licence agreement below. If you have yet to register, you can do so at any time from the
+                    navigation bar above or at the button below. If you already have a log in you can also do so from the bar
+                    above or button below, and your serial number will be populated below automatically.
+                </p>
+                <a class="btn btn-outline-primary" href="/login">Register or Login</a>
+            }
+        }
+        <hr>
+        <p>
+            &emsp;In 2021, PowerMouse Designs adopted an ambitious 10 year sustainability goal, empowering people around
+            the
+            globe to
+            build one million zero-energy homes. Zero-energy homes are homes that produce as much or more energy than
+            they
+            consume on an annualized basis.
+            <br>
+            &emsp;Today, PowerMouse Designs announced that they are providing a single-family home plan, and an ADU
+            plan, that
+            have
+            the best potential for wide-spread adoption in climate zones 4-5, for free. Starting now, people can
+            download these
+            zero-energy home plans, modify, and use them with a license inspired by the Open Source Software community.
+            <br>
+            &emsp;These zero-energy home plans are designed with future adaptations in mind, allowing the design to
+            evolve over
+            time,
+            adapting to both use and the environment. What is unique about this open source project is that PowerMouse
+            Designs
+            is providing the source architectural files so people can modify the plans themselves, or have their
+            architect use
+            them as the basis for a customized home design. People who improve upon the plan are invited to contribute
+            their
+            improvements to the project to help realize a carbon neutral future. To get started, go to the PowerMouse
+            Designs web page at <a class="text-dark"
+                href="https://www.tclegendhomes.com/">https://www.tclegendhomes.com/</a> and click Free Plans.
+        </p>
+    </div>
+</div>
+<div class="container">
+    <h3 class="text-primary">Agreement</h3>
+    <div id="legaleseContainer">
+        <p>PowerMouse Designs (the “Creator”) is making these draft model construction drawings (the “Plans”) available
+            free
+            of
+            charge and “as is,” and subject to the terms and conditions of this agreement (“Agreement”).
+            The Creator provides these plans with a Copyleft open-source license. Copyleft is the practice of granting
+            the
+            right
+            to freely distribute and modify intellectual property with the requirement that the same rights be preserved
+            in
+            derivative works created from that property.[1] In consideration for and as a condition of your use of the
+            Plans,
+            you expressly agree to the following:</p>
+        <br>
+        <ol type="1">
+            <li>
+                <b>Free Redistribution.</b>
+                <br>
+                The Plans are provided to you to use for free. If you pass them on, you are obligated to do
+                so for free, whether or not you have altered them. The rights attached to this Plan apply to all to whom
+                the
+                Plan is redistributed, without the need to execute an additional license by those parties.
+                <br>
+            </li>
+            <li>
+                <b>Modifiable Source.</b>
+                <br>
+                If you pass on the Plans, you must include complete design files in the preferred form in
+                which a designer would modify them, including commonly editable source files. No provision of this
+                license
+                is predicated on any individual technology, style of interface, or platform.
+                <br>
+            </li>
+            <li>
+                <b>Derived Works.</b>
+                <br>
+                You may create derivative works from the Plans on the condition that you make them available for
+                use under the same terms described here, including offering the source files of any modifications. Thus,
+                all
+                reworkings of the Plans end up precisely as “open” as the original.
+                <br>
+            </li>
+            <li>
+                <b>No Discrimination.</b>
+                <br>
+                The openness and availability of the Plans and any derivative works must be inclusive to all
+                people and groups of people and non-discriminatory on any basis, including race, politics, gender,
+                profession, or interest.
+                <br>
+            </li>
+            <li>
+                <b>Respect our Name.</b>
+                <br>
+                The trademark ‘PowerMouse Designs’ and any associated service marks or logos are protected. No
+                license is provided to the name PowerMouse Designs or any associated logos for any use or purpose
+                whatsoever.
+                The only exception to this is for such notices as may be required as part of the open-source license.
+                <br>
+            </li>
+            <li>
+                <b>Engaging a Design Professional and Licensed Contractor.</b>
+                <br>
+                You agree that, as the Plans are “as is,” you must seek professional assistance to guide you through the
+                design and construction of the Plans.
+                You agree that you will have the Plans reviewed and approved by a local professional and duly licensed
+                architect or engineer as well as a licensed contractor before the start of any construction.
+                <b>Your right
+                    to use the Plans is conditioned on your
+                    agreement to engage a licensed architect or engineer and a licensed contractor prior to construction
+                    and
+                    to comply with all local building codes, zoning requirements, and other applicable laws,
+                    regulations,
+                    ordinances, and requirements, and to ascertain that the Plans are suitable for the intended
+                    site.</b>
+                You agree that you will maintain (and cause your design professionals, builders, and other contractors
+                involved in the Project to maintain) sufficient liability and other insurance coverages with insurance
+                companies
+                licensed in the applicable locations, as necessary to cover all of your obligations under this Agreement
+                and
+                applicable law.
+                <br>
+            </li>
+            <li>
+                <b>No Warranty.</b>
+                <br>
+                THE PLANS ARE PROVIDED "AS IS" WITHOUT REPRESENTATIONS OR WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+                IMPLIED. YOU AGREE THAT IT IS YOUR RESPONSIBILITY TO ENSURE, PRIOR TO USE OF THE PLANS, THAT THE PLANS
+                ARE
+                ACCURATE,
+                SUITABLE FOR YOUR PURPOSES, AND COMPLIANT WITH ALL APPLICABLE LAWS. You acknowledge and agree that
+                neither
+                the
+                Creator nor any design professionals or others who prepared the Plans accept any responsibility for the
+                accuracy
+                or
+                completeness of them and that both the Creator and any other design professionals who prepared these
+                Plans
+                disclaim
+                all warranties, express or implied, with respect to the Plans and all use by you or any third party of
+                the
+                same.
+                <br>
+            </li>
+            <li>
+                <b>You Assume All Liability.</b>
+                <br>
+                IN NO EVENT SHALL THE CREATOR OR ITS AFFILIATES OR ANY DESIGNERS WHO PREPARED THE
+                PLANS BE
+                LIABLE FOR ANY LOSS OR DAMAGE WHATSOEVER, INCLUDING INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, EXEMPLARY
+                OR
+                CONSEQUENTIAL DAMAGES, ARISING OUT OF OR IN ANY WAY CONNECTED WITH YOUR USE OF THE PLANS IN ANY MANNER,
+                including
+                but not limited to economic loss, damage to property, and damage for personal injury arising out of your
+                use
+                of
+                the
+                Plans.
+                <br>
+            </li>
+            <li>
+                <b>Indemnity.</b>
+                <br>
+                <b>
+                    You agree to indemnify and defend the Creator and its affiliates, design professionals or other
+                    licensors
+                    who contributed to the Plans, and their respective officers, directors, owners, agents,
+                    representatives,
+                    contractors, employees, ATTORNEYS, INSURERS and assigns of the foregoing (collectively, the
+                    "Indemnified
+                    Parties")
+                    and hold them harmless from and against any and all losses, demands, causes of action, damages,
+                    liability and
+                    costs
+                    and expenses, including reasonable attorneys' fees, incurred or sustained by any of the Indemnified
+                    Parties in
+                    connection with (i) the use, construction of, modification of, misinterpretation or alteration of,
+                    or
+                    reuse by,
+                    you
+                    or others of the Plans; (ii) any negligence or other acts or omissions by you or any of your
+                    contractors,
+                    subcontractors, suppliers, employees, designers, architects, engineers, consultants, advisors,
+                    agents or
+                    representatives; and (iii) any breach by you or any of your contractors, subcontractors, suppliers,
+                    employees,
+                    designers, architects, engineers, consultants, advisors, agents or representatives of any of the
+                    provisions of
+                    this
+                    Agreement.
+                </b>
+                <br>
+            </li>
+            <li>
+                <b>Jurisdiction/Litigation.</b>
+                <br>
+                This license is made and delivered in the State of Washington and shall be construed
+                and
+                enforced in accordance with the laws thereof. The jurisdiction and venue of any dispute hereunder shall
+                be
+                solely in
+                the Superior Court of the State of Washington in and for Whatcom County, regardless of where the Project
+                is
+                located.
+                The parties waive their rights to a trial by jury.
+                <br>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="container">
+    <p>
+        &emsp;
+        <label class="form-check-label mt-2" for="licenseAgreement">
+            <input type="checkbox" class="form-check-input" id="licenseAgreement"
+                onclick='document.getElementById("serialButton").disabled = false; document.getElementById("licenseAgreement").disabled = true'>
+            I have read and agree to the above licence terms. This box must be checked to continue
+        </label>
+    </p>
+</div>
+<hr>
+<div class="mt-3">
+    @if (@Context.Session.GetString("UserSN") != "")
+    {
+        <form class="mt-3 form-group" asp-controller="Home" asp-action="Gatekeeper" method="POST">
+            <div class="text-center">
+                <input class="inputlg w-25" asp-for="UserSNInput" placeholder="serial number please"
+                value='@Context.Session.GetString("UserSN")'>
+                <span asp-validation-for="UserSNInput" class="text-danger textSMALL"></span>
+                <br>
+                <button disabled="true" id="serialButton" class="btn btn-outline-dark mt-2">continue</button>
+            </div>
+        </form>
+    }
+    else
+    {
+        <form class="mt-3 form-group" asp-controller="Home" asp-action="Gatekeeper" method="POST">
+            <div class="text-center">
+                <span asp-validation-for="UserSNInput" class="text-danger textSMALL"></span>
+                <input class="inputlg w-25" asp-for="UserSNInput" placeholder="serial number please">
+                <br>
+                <button disable="true" id="serialButton" class="btn btn-outline-dark mt-2">continue</button>
+            </div>
+
+        </form>
+    }
+</div>
